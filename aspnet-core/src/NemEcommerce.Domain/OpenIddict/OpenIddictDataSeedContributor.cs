@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text.Json;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
@@ -15,6 +16,7 @@ using Volo.Abp.OpenIddict.Applications;
 using Volo.Abp.OpenIddict.Scopes;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.Uow;
+using static Volo.Abp.Identity.Settings.IdentitySettingNames;
 
 namespace NemEcommerce.OpenIddict;
 
@@ -64,6 +66,16 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
                 Name = "NemEcommerce", DisplayName = "NemEcommerce API", Resources = { "NemEcommerce" }
             });
         }
+
+        if (await _openIddictScopeRepository.FindByNameAsync("NemEcommerce.Admin") == null)
+        {
+            await _scopeManager.CreateAsync(new OpenIddictScopeDescriptor
+            {
+                Name = "NemEcommerce.Admin",
+                DisplayName = "NemEcommerce Admin API",
+                Resources = { "NemEcommerce.Admin" }
+            });
+        }
     }
 
     private async Task CreateApplicationsAsync()
@@ -73,55 +85,86 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
             OpenIddictConstants.Permissions.Scopes.Email,
             OpenIddictConstants.Permissions.Scopes.Phone,
             OpenIddictConstants.Permissions.Scopes.Profile,
-            OpenIddictConstants.Permissions.Scopes.Roles,
-            "NemEcommerce"
+            OpenIddictConstants.Permissions.Scopes.Roles
         };
+
+        var adminScopes = new List<string>();
+        adminScopes.AddRange(commonScopes);
+        adminScopes.Add("NemEcommerce.Admin");
+
+        var clientScopes = new List<string>();
+        clientScopes.AddRange(commonScopes);
+        clientScopes.Add("NemEcommerce");
 
         var configurationSection = _configuration.GetSection("OpenIddict:Applications");
 
 
         //Console Test / Angular Client
-        var consoleAndAngularClientId = configurationSection["NemEcommerce_App:ClientId"];
-        if (!consoleAndAngularClientId.IsNullOrWhiteSpace())
+        var webAdminClientId = configurationSection["NemEcommerce_Admin:ClientId"];
+        if (!webAdminClientId.IsNullOrWhiteSpace())
         {
-            var consoleAndAngularClientRootUrl = configurationSection["NemEcommerce_App:RootUrl"]?.TrimEnd('/');
+            var adminWebClientRootUrl = configurationSection["NemEcommerce_Admin:RootUrl"].TrimEnd('/');
             await CreateApplicationAsync(
-                name: consoleAndAngularClientId!,
+                name: webAdminClientId,
+                type: OpenIddictConstants.ClientTypes.Confidential,
+                consentType: OpenIddictConstants.ConsentTypes.Implicit,
+                displayName: "Admin Application",
+                secret: configurationSection["NemEcommerce_Admin:ClientSecret"] ?? "1q2w3e*",
+                grantTypes: new List<string> //Hybrid flow
+                {
+                    OpenIddictConstants.GrantTypes.Password,
+                    OpenIddictConstants.GrantTypes.RefreshToken,
+                    OpenIddictConstants.GrantTypes.Implicit
+                },
+                scopes: adminScopes,
+                redirectUri: adminWebClientRootUrl,
+                clientUri: adminWebClientRootUrl,
+                postLogoutRedirectUri: adminWebClientRootUrl
+            );
+        }
+
+
+
+        var swaggerClientId = configurationSection["NemEcommerce_Admin_Swagger:ClientId"];
+        if (!swaggerClientId.IsNullOrWhiteSpace())
+        {
+            var swaggerRootUrl = configurationSection["NemEcommerce_Admin_Swagger:RootUrl"].TrimEnd('/');
+            await CreateApplicationAsync(
+                name: swaggerClientId,
                 type: OpenIddictConstants.ClientTypes.Public,
                 consentType: OpenIddictConstants.ConsentTypes.Implicit,
-                displayName: "Console Test / Angular Application",
+                displayName: "Swagger Admin Application",
                 secret: null,
+                grantTypes: new List<string>
+                {
+                    OpenIddictConstants.GrantTypes.AuthorizationCode,
+                },
+                scopes: adminScopes,
+                redirectUri: $"{swaggerRootUrl}/swagger/oauth2-redirect.html",
+                clientUri: swaggerRootUrl
+            );
+        }
+
+        var webClientId = configurationSection["NemEcommerce_Web:ClientId"];
+        if (!webClientId.IsNullOrWhiteSpace())
+        {
+            var webClientRootUrl = configurationSection["NemEcommerce_Web:RootUrl"].EnsureEndsWith('/');
+            await CreateApplicationAsync(
+                name: webClientId,
+                type: OpenIddictConstants.ClientTypes.Confidential,
+                consentType: OpenIddictConstants.ConsentTypes.Implicit,
+                displayName: "Console Test / Angular Application",
+                secret: configurationSection["NemEcommerce_Web:ClientSecret"] ?? "1q2w3e*",
                 grantTypes: new List<string> {
                     OpenIddictConstants.GrantTypes.AuthorizationCode,
                     OpenIddictConstants.GrantTypes.Password,
                     OpenIddictConstants.GrantTypes.ClientCredentials,
                     OpenIddictConstants.GrantTypes.RefreshToken
                 },
-                scopes: commonScopes,
-                redirectUri: consoleAndAngularClientRootUrl,
-                clientUri: consoleAndAngularClientRootUrl,
-                postLogoutRedirectUri: consoleAndAngularClientRootUrl
-            );
-        }
-
-
-
-        // Swagger Client
-        var swaggerClientId = configurationSection["NemEcommerce_Swagger:ClientId"];
-        if (!swaggerClientId.IsNullOrWhiteSpace())
-        {
-            var swaggerRootUrl = configurationSection["NemEcommerce_Swagger:RootUrl"]?.TrimEnd('/');
-
-            await CreateApplicationAsync(
-                name: swaggerClientId!,
-                type: OpenIddictConstants.ClientTypes.Public,
-                consentType: OpenIddictConstants.ConsentTypes.Implicit,
-                displayName: "Swagger Application",
-                secret: null,
-                grantTypes: new List<string> { OpenIddictConstants.GrantTypes.AuthorizationCode, },
-                scopes: commonScopes,
-                redirectUri: $"{swaggerRootUrl}/swagger/oauth2-redirect.html",
-                clientUri: swaggerRootUrl
+                scopes: clientScopes,
+                redirectUri: $"{webClientRootUrl}signin-oidc",
+                clientUri: webClientRootUrl,
+                postLogoutRedirectUri: $"{webClientRootUrl}signout-callback-oidc"
             );
         }
     }

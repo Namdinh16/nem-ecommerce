@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,6 +30,8 @@ using Volo.Abp.Modularity;
 using Volo.Abp.Security.Claims;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
 
 namespace NemEcommerce.Admin;
 
@@ -130,6 +132,16 @@ public class NemEcommerceAdminHttpApiHostModule : AbpModule
             });
     }
 
+    private void ConfigureLocalization()
+    {
+        Configure<AbpLocalizationOptions>(options =>
+        {
+            options.Languages.Add(new LanguageInfo("en", "en", "English"));
+            options.Languages.Add(new LanguageInfo("vi", "vn", "Tiếng Việt"));
+
+        });
+    }
+
     private void ConfigureDataProtection(
         ServiceConfigurationContext context,
         IConfiguration configuration,
@@ -184,7 +196,22 @@ public class NemEcommerceAdminHttpApiHostModule : AbpModule
             app.UseDeveloperExceptionPage();
         }
 
-        app.UseAbpRequestLocalization();
+        var supportedCultures = new[]
+         {
+                new CultureInfo("en")
+            };
+
+        app.UseAbpRequestLocalization(options =>
+        {
+            options.DefaultRequestCulture = new RequestCulture("en");
+            options.SupportedCultures = supportedCultures;
+            options.SupportedUICultures = supportedCultures;
+            options.RequestCultureProviders = new List<IRequestCultureProvider>
+                {
+                    new QueryStringRequestCultureProvider(),
+                    new CookieRequestCultureProvider()
+                };
+        });
         app.UseCorrelationId();
         app.UseStaticFiles();
         app.UseRouting();
@@ -207,7 +234,7 @@ public class NemEcommerceAdminHttpApiHostModule : AbpModule
 
             var configuration = context.GetConfiguration();
             options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
-            options.OAuthScopes("NemEcommerce");
+            options.OAuthScopes("NemEcommerce.Admin");
         });
 
         app.UseAuditing();

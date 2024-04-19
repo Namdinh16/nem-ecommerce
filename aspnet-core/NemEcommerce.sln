@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NemEcommerce.HttpApi.Client
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NemEcommerce.DbMigrator", "src\NemEcommerce.DbMigrator\NemEcommerce.DbMigrator.csproj", "{AA94D832-1CCC-4715-95A9-A483F23A1A5D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "identity", "identity", "{88BDD05A-6212-48AB-AC26-109DAB03CBA1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "auth", "auth", "{88BDD05A-6212-48AB-AC26-109DAB03CBA1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{E487906D-3023-40A6-A4BC-226DAB208C3B}"
 EndProject
