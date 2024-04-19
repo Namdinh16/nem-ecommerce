@@ -1,4 +1,24 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NemEcommerce.Configurations.IdentitySettings;
+using NemEcommerce.Configurations.Inventories;
+using NemEcommerce.Configurations.InventoryTickets;
+using NemEcommerce.Configurations.Manufactures;
+using NemEcommerce.Configurations.Orders;
+using NemEcommerce.Configurations.ProductAttributes;
+using NemEcommerce.Configurations.ProductCategories;
+using NemEcommerce.Configurations.Products;
+using NemEcommerce.Configurations.Promotions;
+using NemEcommerce.IdentitySettings;
+using NemEcommerce.Inventories;
+using NemEcommerce.InventoryTickets;
+using NemEcommerce.Manufactures;
+using NemEcommerce.Orders;
+using NemEcommerce.ProductAttributes;
+using NemEcommerce.ProductCategories;
+using NemEcommerce.Products;
+using NemEcommerce.Promotions;
+using System.Drawing;
+using System.Reflection.Emit;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -51,6 +71,36 @@ public class NemEcommerceDbContext :
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
 
+    //Ecommerce
+    public DbSet<ProductAttribute> ProductAttributes { get; set; }
+    public DbSet<Inventory> Inventories { get; set; }
+    public DbSet<InventoryTicket> InventoryTickets { get; set; }
+    public DbSet<InventoryTicketItem> InventoryTicketItems { get; set; }
+    public DbSet<Manufacturer> Manufacturers { get; set; }
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderItem> OrderItems { get; set; }
+    public DbSet<OrderTransaction> OrderTransactions { get; set; }
+    public DbSet<ProductCategory> ProductCategories { get; set; }
+
+    public DbSet<Product> Products { get; set; }
+    public DbSet<ProductAttributeDateTime> ProductAttributeDateTimes { get; set; }
+    public DbSet<ProductAttributeDecimal> ProductAttributeDecimals { get; set; }
+    public DbSet<ProductAttributeInt> ProductAttributeInts { get; set; }
+    public DbSet<ProductAttributeVarchar> ProductAttributeVarchars { get; set; }
+    public DbSet<ProductAttributeText> ProductAttributeTexts { get; set; }
+    public DbSet<ProductLink> ProductLinks { get; set; }
+    public DbSet<ProductReview> ProductReviews { get; set; }
+    public DbSet<ProductTag> ProductTags { get; set; }
+    public DbSet<Tag> Tags { get; set; }
+    public DbSet<Promotion> Promotions { get; set; }
+    public DbSet<PromotionCategory> PromotionCategories { get; set; }
+    public DbSet<PromotionManufacture> PromotionManufacturers { get; set; }
+    public DbSet<PromotionProduct> PromotionProducts { get; set; }
+    public DbSet<PromotionUsageHistory> PromotionUsageHistories { get; set; }
+    public DbSet<IdentitySetting> IdentitySettings { get; set; }
+
+
+
     #endregion
 
     public NemEcommerceDbContext(DbContextOptions<NemEcommerceDbContext> options)
@@ -73,6 +123,43 @@ public class NemEcommerceDbContext :
         builder.ConfigureOpenIddict();
         builder.ConfigureFeatureManagement();
         builder.ConfigureTenantManagement();
+
+        //My Configuration
+        builder.ApplyConfiguration(new ProductAttributeConfiguration());
+
+        builder.ApplyConfiguration(new InventoryConfiguration());
+
+        builder.ApplyConfiguration(new InventoryTicketConfiguration());
+        builder.ApplyConfiguration(new InventoryTicketItemConfiguration());
+
+        builder.ApplyConfiguration(new ManufacturerConfiguration());
+
+        builder.ApplyConfiguration(new OrderConfiguration());
+        builder.ApplyConfiguration(new OrderItemConfiguration());
+        builder.ApplyConfiguration(new OrderTransactionConfiguration());
+
+        builder.ApplyConfiguration(new ProductCategoryConfiguration());
+
+        builder.ApplyConfiguration(new ProductConfiguration());
+        builder.ApplyConfiguration(new ProductLinkConfiguration());
+        builder.ApplyConfiguration(new ProductReviewConfiguration());
+        builder.ApplyConfiguration(new ProductTagConfiguration());
+        builder.ApplyConfiguration(new TagConfiguration());
+        builder.ApplyConfiguration(new ProductAttributeDateTimeConfiguration());
+        builder.ApplyConfiguration(new ProductAttributeDecimalConfiguration());
+        builder.ApplyConfiguration(new ProductAttributeIntConfiguration());
+        builder.ApplyConfiguration(new ProductAttributeTextConfiguration());
+        builder.ApplyConfiguration(new ProductAttributeVarcharConfiguration());
+
+        builder.ApplyConfiguration(new PromotionConfiguration());
+        builder.ApplyConfiguration(new PromotionCategoryConfiguration());
+        builder.ApplyConfiguration(new PromotionManufacturerConfiguration());
+        builder.ApplyConfiguration(new PromotionProductConfiguration());
+        builder.ApplyConfiguration(new PromotionUsageHistoryConfiguration());
+
+        builder.ApplyConfiguration(new IdentitySettingConfiguration());
+
+
 
         /* Configure your own tables/entities inside here */
 

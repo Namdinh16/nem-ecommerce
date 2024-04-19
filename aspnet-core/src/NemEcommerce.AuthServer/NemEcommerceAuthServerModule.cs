@@ -62,7 +62,7 @@ public class NemEcommerceAuthServerModule : AbpModule
         {
             builder.AddValidation(options =>
             {
-                options.AddAudiences("NemEcommerce");
+                options.AddAudiences("NemEcommerce", "NemEcommerce.Admin");
                 options.UseLocalServer();
                 options.UseAspNetCore();
             });

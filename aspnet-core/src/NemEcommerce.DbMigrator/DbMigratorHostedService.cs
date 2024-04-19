@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NemEcommerce.Data;
+using NemEcommerce.Seeding;
 using Serilog;
 using Volo.Abp;
 using Volo.Abp.Data;
@@ -37,6 +38,11 @@ public class DbMigratorHostedService : IHostedService
                 .ServiceProvider
                 .GetRequiredService<NemEcommerceDbMigrationService>()
                 .MigrateAsync();
+
+            await application
+                .ServiceProvider
+                .GetRequiredService<IdentityDataSeeder>()
+                .SeedAsync("admin@gmail.com", "Nem@123");
 
             await application.ShutdownAsync();
 

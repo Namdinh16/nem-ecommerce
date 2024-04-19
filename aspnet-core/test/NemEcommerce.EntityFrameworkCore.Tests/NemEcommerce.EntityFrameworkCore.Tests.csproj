@@ -11,11 +11,13 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\NemEcommerce.EntityFrameworkCore\NemEcommerce.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\NemEcommerce.Application.Tests\NemEcommerce.Application.Tests.csproj" />
+    <PackageReference Include="Volo.Abp.BlobStoring.FileSystem" Version="8.0.5" />
     <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="Volo.Abp.FluentValidation" Version="8.0.5" />
   </ItemGroup>
 
 </Project>
