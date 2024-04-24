@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\NemEcommerce.Admin.Application\NemEcommerce.Admin.Application.csproj" />
-    <ProjectReference Include="..\NemEcommerce.Domain.Tests\NemEcommerce.Domain.Tests.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using NemEcommerce.Admin.Products;
-using NemEcommerce.Admin.Products.Attributes;
+using NemEcommerce.Admin.Catalog.Products.Attributes;
+using NemEcommerce.Admin.Permissions;
 using NemEcommerce.ProductAttributes;
 using NemEcommerce.ProductCategories;
 using NemEcommerce.Products;
@@ -17,7 +17,7 @@ using Volo.Abp.Domain.Repositories;
 
 namespace NemEcommerce.Admin.Catalog.Products
 {
-    [Authorize]
+    [Authorize(NemEcommercePermissions.Product.Default, Policy = "AdminOnly")]
     public class ProductsAppService : CrudAppService<
         Product,
         ProductDto,
@@ -59,8 +59,16 @@ namespace NemEcommerce.Admin.Catalog.Products
             _productAttributeDecimalRepository = productAttributeDecimalRepository;
             _productAttributeVarcharRepository = productAttributeVarcharRepository;
             _productAttributeTextRepository = productAttributeTextRepository;
+
+            GetPolicyName = NemEcommercePermissions.Product.Default;
+            GetListPolicyName = NemEcommercePermissions.Product.Default;
+            CreatePolicyName = NemEcommercePermissions.Product.Create;
+            UpdatePolicyName = NemEcommercePermissions.Product.Update;
+            DeletePolicyName = NemEcommercePermissions.Product.Delete;
         }
 
+
+        [Authorize(NemEcommercePermissions.Product.Create)]
         public override async Task<ProductDto> CreateAsync(CreateUpdateProductDto input)
         {
             var product = await _productManager.CreateAsync(input.ManufacturerId, input.Name, input.Code, input.Slug, input.ProductType, input.SKU,
@@ -77,6 +85,8 @@ namespace NemEcommerce.Admin.Catalog.Products
             return ObjectMapper.Map<Product, ProductDto>(result);
         }
 
+
+        [Authorize(NemEcommercePermissions.Product.Update)]
         public override async Task<ProductDto> UpdateAsync(Guid id, CreateUpdateProductDto input)
         {
             var product = await Repository.GetAsync(id);
@@ -91,6 +101,7 @@ namespace NemEcommerce.Admin.Catalog.Products
             product.SortOrder = input.SortOrder;
             product.Visibility = input.Visibility;
             product.IsActive = input.IsActive;
+            product.SellPrice = input.sellPrice;
 
             if (product.CategoryId != input.CategoryId)
             {
@@ -108,12 +119,14 @@ namespace NemEcommerce.Admin.Catalog.Products
                 product.ThumbnailPicture = input.ThumbnailPictureName;
 
             }
-            product.SellPrice = input.sellPrice;
+            
             await Repository.UpdateAsync(product);
 
             return ObjectMapper.Map<Product, ProductDto>(product);
         }
 
+
+        [Authorize(NemEcommercePermissions.Product.Delete)]
         public async Task DeleteMultipleAsync(IEnumerable<Guid> ids)
         {
             await Repository.DeleteManyAsync(ids);
@@ -129,6 +142,8 @@ namespace NemEcommerce.Admin.Catalog.Products
             return ObjectMapper.Map<List<Product>, List<ProductInListDto>>(data);
         }
 
+
+        [Authorize(NemEcommercePermissions.Product.Default)]
         public async Task<PagedResultDto<ProductInListDto>> GetListFilterAsync(ProductListFilterDto input)
         {
             var query = await Repository.GetQueryableAsync();
@@ -145,6 +160,7 @@ namespace NemEcommerce.Admin.Catalog.Products
             return new PagedResultDto<ProductInListDto>(totalCount, ObjectMapper.Map<List<Product>, List<ProductInListDto>>(data));
         }
 
+        [Authorize(NemEcommercePermissions.Product.Update)]
         private async Task SaveThumbnailImageAsync(string fileName, string base64)
         {
             Regex regex = new Regex(@"^[\w/\:.-]+;base64,");
@@ -153,6 +169,8 @@ namespace NemEcommerce.Admin.Catalog.Products
             await _fileContainer.SaveAsync(fileName, bytes, overrideExisting: true);
         }
 
+
+        [Authorize(NemEcommercePermissions.Product.Default)]
         public async Task<string> GetThumbnailImageAsync(string fileName)
         {
             if (string.IsNullOrEmpty(fileName))
@@ -169,13 +187,14 @@ namespace NemEcommerce.Admin.Catalog.Products
             return result;
         }
 
+
         public async Task<string> GetSuggestNewCodeAsync()
         {
             return await _productCodeGenerator.GenerateAsync();
         }
 
 
-
+        [Authorize(NemEcommercePermissions.Product.Update)]
         public async Task<ProductAttributeValueDto> AddProductAttributeAsync(AddUpdateProductAttributeDto input)
         {
             var product = await Repository.GetAsync(input.ProductId);
@@ -257,7 +276,7 @@ namespace NemEcommerce.Admin.Catalog.Products
 
 
 
-
+        [Authorize(NemEcommercePermissions.Product.Update)]
         public async Task RemoveProductAttributeAsync(Guid attributeId, Guid id)
         {
             var attribute = await _productAttributeRepository.GetAsync(x => x.Id == attributeId);
@@ -313,7 +332,7 @@ namespace NemEcommerce.Admin.Catalog.Products
 
 
 
-
+        [Authorize(NemEcommercePermissions.Product.Default)]
         public async Task<List<ProductAttributeValueDto>> GetListProductAttributeAllAsync(Guid productId)
         {
             var attributeQuery = await _productAttributeRepository.GetQueryableAsync();
@@ -369,7 +388,7 @@ namespace NemEcommerce.Admin.Catalog.Products
 
 
 
-
+        [Authorize(NemEcommercePermissions.Product.Default)]
         public async Task<PagedResultDto<ProductAttributeValueDto>> GetListProductAttributeAsync(ProductAttributeListFilterDto input)
         {
             var attributeQuery = await _productAttributeRepository.GetQueryableAsync();
@@ -431,7 +450,7 @@ namespace NemEcommerce.Admin.Catalog.Products
 
 
 
-
+        [Authorize(NemEcommercePermissions.Product.Update)]
         public async Task<ProductAttributeValueDto> UpdateProductAttributeAsync(Guid id, AddUpdateProductAttributeDto input)
         {
             var product = await Repository.GetAsync(input.ProductId);

@@ -1,4 +1,5 @@
-﻿using NemEcommerce.EntityFrameworkCore;
+﻿using NemEcommerce.Admin;
+using NemEcommerce.EntityFrameworkCore;
 using Volo.Abp.Autofac;
 using Volo.Abp.Caching;
 using Volo.Abp.Caching.StackExchangeRedis;

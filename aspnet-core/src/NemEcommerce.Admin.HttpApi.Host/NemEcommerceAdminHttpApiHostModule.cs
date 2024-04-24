@@ -32,6 +32,8 @@ using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
 
 namespace NemEcommerce.Admin;
 
@@ -48,6 +50,14 @@ namespace NemEcommerce.Admin;
 )]
 public class NemEcommerceAdminHttpApiHostModule : AbpModule
 {
+
+    public override void PreConfigureServices(ServiceConfigurationContext context)
+    {
+        PreConfigure<IdentityBuilder>(builder =>
+        {
+            builder.AddDefaultTokenProviders();
+        });
+    }
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         var configuration = context.Services.GetConfiguration();
@@ -106,13 +116,18 @@ public class NemEcommerceAdminHttpApiHostModule : AbpModule
             .AddJwtBearer(options =>
             {
                 options.Authority = configuration["AuthServer:Authority"];
-                options.RequireHttpsMetadata = configuration.GetValue<bool>("AuthServer:RequireHttpsMetadata");
+                options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
                 options.Audience = "NemEcommerce.Admin";
+                options.TokenValidationParameters = new
+                   TokenValidationParameters()
+                {
+                    ValidateAudience = false,
+                    ValidateIssuer = false,
+                };
             });
-
-        context.Services.Configure<AbpClaimsPrincipalFactoryOptions>(options =>
+        context.Services.AddAuthorization(options =>
         {
-            options.IsDynamicClaimsEnabled = true;
+            options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
         });
     }
 

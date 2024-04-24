@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
-using NemEcommerce.Admin.Manufacturers;
-using NemEcommerce.Admin.ProductAttributes;
-using NemEcommerce.Admin.ProductCategories;
-using NemEcommerce.Admin.Products;
-using NemEcommerce.Admin.Roles;
+using NemEcommerce.Admin.Catalog.Manufacturers;
+using NemEcommerce.Admin.Catalog.ProductAttributes;
+using NemEcommerce.Admin.Catalog.ProductCategories;
+using NemEcommerce.Admin.Catalog.Products;
+using NemEcommerce.Admin.System.Roles;
+using NemEcommerce.Admin.System.Users;
 using NemEcommerce.Manufactures;
 using NemEcommerce.ProductAttributes;
 using NemEcommerce.ProductCategories;
@@ -53,5 +54,10 @@ public class NemEcommerceAdminApplicationAutoMapperProfile : Profile
             :
             null)); 
         CreateMap<CreateUpdateRoleDto, IdentityRole>();
+
+
+        //Users
+        CreateMap<IdentityUser, UserDto>();
+        CreateMap<IdentityUser, UserInListDto>();
     }
 }

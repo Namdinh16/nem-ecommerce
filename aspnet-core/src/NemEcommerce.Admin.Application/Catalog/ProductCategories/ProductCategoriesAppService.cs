@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using NemEcommerce.Admin.Permissions;
 using NemEcommerce.ProductCategories;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,8 @@ using Volo.Abp.Domain.Repositories;
 
 namespace NemEcommerce.Admin.Catalog.ProductCategories
 {
-    [Authorize]
+    [Authorize(NemEcommercePermissions.ProductCategory.Default, Policy = "AdminOnly")]
+
     public class ProductCategoriesAppService : CrudAppService<
         ProductCategory,
         ProductCategoryDto,
@@ -23,14 +25,23 @@ namespace NemEcommerce.Admin.Catalog.ProductCategories
         public ProductCategoriesAppService(IRepository<ProductCategory, Guid> repository)
             : base(repository)
         {
+            GetPolicyName = NemEcommercePermissions.ProductCategory.Default;
+            GetListPolicyName = NemEcommercePermissions.ProductCategory.Default;
+            CreatePolicyName = NemEcommercePermissions.ProductCategory.Create;
+            UpdatePolicyName = NemEcommercePermissions.ProductCategory.Update;
+            DeletePolicyName = NemEcommercePermissions.ProductCategory.Delete;
         }
 
+
+        [Authorize(NemEcommercePermissions.ProductCategory.Delete)]
         public async Task DeleteMultipleAsync(IEnumerable<Guid> ids)
         {
             await Repository.DeleteManyAsync(ids);
             await UnitOfWorkManager.Current.SaveChangesAsync();
         }
 
+
+        [Authorize(NemEcommercePermissions.ProductCategory.Default)]
         public async Task<List<ProductCategoryInListDto>> GetListAllAsync()
         {
             var query = await Repository.GetQueryableAsync();
@@ -41,6 +52,8 @@ namespace NemEcommerce.Admin.Catalog.ProductCategories
 
         }
 
+
+        [Authorize(NemEcommercePermissions.ProductCategory.Default)]
         public async Task<PagedResultDto<ProductCategoryInListDto>> GetListFilterAsync(BaseListFilterDto input)
         {
             var query = await Repository.GetQueryableAsync();

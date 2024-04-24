@@ -19,8 +19,9 @@ using Volo.Abp.MultiTenancy;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.SimpleStateChecking;
 
-namespace NemEcommerce.Admin.Roles
+namespace NemEcommerce.Admin.System.Roles
 {
+    [Authorize(IdentityPermissions.Roles.Default, Policy = "AdminOnly")]
     public class RolesAppService : CrudAppService<
         IdentityRole,
         RoleDto,
@@ -44,14 +45,25 @@ namespace NemEcommerce.Admin.Roles
             PermissionManager = permissionManager;
             PermissionDefinitionManager = permissionDefinitionManager;
             SimpleStateCheckerManager = simpleStateCheckerManager;
+
+
+            GetPolicyName = IdentityPermissions.Roles.Default;
+            GetListPolicyName = IdentityPermissions.Roles.Default;
+            CreatePolicyName = IdentityPermissions.Roles.Create;
+            UpdatePolicyName = IdentityPermissions.Roles.Update;
+            DeletePolicyName = IdentityPermissions.Roles.Delete;
         }
 
+
+        [Authorize(IdentityPermissions.Roles.Delete)]
         public async Task DeleteMultipleAsync(IEnumerable<Guid> ids)
         {
             await Repository.DeleteManyAsync(ids);
             await UnitOfWorkManager.Current.SaveChangesAsync();
         }
 
+
+        [Authorize(IdentityPermissions.Roles.Default)]
         public async Task<List<RoleInListDto>> GetListAllAsync()
         {
             var query = await Repository.GetQueryableAsync();
@@ -62,6 +74,8 @@ namespace NemEcommerce.Admin.Roles
 
         }
 
+
+        [Authorize(IdentityPermissions.Roles.Default)]
         public async Task<PagedResultDto<RoleInListDto>> GetListFilterAsync(BaseListFilterDto input)
         {
             var query = await Repository.GetQueryableAsync();
@@ -73,9 +87,11 @@ namespace NemEcommerce.Admin.Roles
             return new PagedResultDto<RoleInListDto>(totalCount, ObjectMapper.Map<List<IdentityRole>, List<RoleInListDto>>(data));
         }
 
+
+        [Authorize(IdentityPermissions.Roles.Create)]
         public async override Task<RoleDto> CreateAsync(CreateUpdateRoleDto input)
         {
-            var query = await Repository.GetQueryableAsync();   
+            var query = await Repository.GetQueryableAsync();
             var isNameExisted = query.Any(x => x.Name == input.Name);
             if (isNameExisted)
             {
@@ -89,31 +105,10 @@ namespace NemEcommerce.Admin.Roles
             return ObjectMapper.Map<IdentityRole, RoleDto>(data);
         }
 
+
+        [Authorize(IdentityPermissions.Roles.Update)]
         public async override Task<RoleDto> UpdateAsync(Guid id, CreateUpdateRoleDto input)
         {
-            //var role = await Repository.GetAsync(id);
-            //if (role == null)
-            //{
-            //    throw new EntityNotFoundException(typeof(IdentityRole), id);
-            //}
-            //var query = await Repository.GetQueryableAsync();
-            //var isNameExisted = query.Any(x => x.Name == input.Name && x.Id != id);
-            //if (isNameExisted)
-            //{
-            //    throw new BusinessException(NemEcommerceDomainErrorCodes.RoleNameAlreadyExists)
-            //        .WithData("Name", input.Name);
-            //}
-            //// Replace the existing role with the new one
-            //var updatedRole = new IdentityRole(id, input.Name);
-            //updatedRole.ConcurrencyStamp = role.ConcurrencyStamp;
-            //role.ExtraProperties[RoleConsts.DescriptionFieldName] = input.Description;
-
-            //// Replace the existing role with the new one
-            //await Repository.DeleteAsync(role);
-
-            //var data = await Repository.UpdateAsync(role);
-            //await UnitOfWorkManager.Current.SaveChangesAsync();
-            //return ObjectMapper.Map<IdentityRole, RoleDto>(data);
 
             var role = await Repository.GetAsync(id);
             if (role == null)
@@ -149,8 +144,8 @@ namespace NemEcommerce.Admin.Roles
         }
 
 
-
-        public  async Task<GetPermissionListResultDto> GetPermissionAsync(string providerName, string providerKey)
+        [Authorize(IdentityPermissions.Roles.Default)]
+        public async Task<GetPermissionListResultDto> GetPermissionAsync(string providerName, string providerKey)
         {
             //await CheckProviderPolicy(providerName);
 
@@ -237,6 +232,8 @@ namespace NemEcommerce.Admin.Roles
             };
         }
 
+
+
         private PermissionGroupDto CreatePermissionGroupDto(PermissionGroupDefinition group)
         {
 
@@ -249,6 +246,8 @@ namespace NemEcommerce.Admin.Roles
             };
         }
 
+
+        [Authorize(IdentityPermissions.Roles.Update)]
         public virtual async Task UpdatePermissionAsync(string providerName, string providerKey, UpdatePermissionsDto input)
         {
             //await CheckProviderPolicy(providerName);

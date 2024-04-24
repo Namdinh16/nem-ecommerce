@@ -23,6 +23,16 @@
     "Permission.Catalog.Attribute": "Attribute",
     "Permission.Catalog.Attribute.Create": "Add new attribute",
     "Permission.Catalog.Attribute.Update": "Update Attribute",
-    "Permission.Catalog.Attribute.Delete": "Delete Attribute"
+    "Permission.Catalog.Attribute.Delete": "Delete Attribute",
+
+    "Permission:Catalog.Manufacturer": "Manufacture",
+    "Permission:Catalog.Manufacturer.Create": "Add new Manufacture",
+    "Permission:Catalog.Manufacturer.Update": "Update Manufacture",
+    "Permission:Catalog.Manufacturer.Delete": "Delete Manufacture",
+
+    "Permission:Catalog.ProductCategory": "Product Type",
+    "Permission:Catalog.ProductCategory.Create": "Add new product Type",
+    "Permission:Catalog.ProductCategory.Update": "Update product Type",
+    "Permission:Catalog.ProductCategory.Delete": "Delete product Type"
   }
 }
