@@ -1550,16 +1550,694 @@
       "rootPath": "app",
       "remoteServiceName": "Default",
       "controllers": {
-        "NemEcommerce.Admin.Roles.RolesAppService": {
+        "NemEcommerce.Admin.System.Users.UsersAppService": {
+          "controllerName": "Users",
+          "controllerGroupName": "Users",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "NemEcommerce.Admin.System.Users.UsersAppService",
+          "interfaces": [
+            {
+              "type": "NemEcommerce.Admin.System.Users.IUsersAppService",
+              "name": "IUsersAppService",
+              "methods": [
+                {
+                  "name": "DeleteMultipleAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "ids",
+                      "typeAsString": "System.Collections.Generic.IEnumerable`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib",
+                      "type": "System.Collections.Generic.IEnumerable<System.Guid>",
+                      "typeSimple": "[string]",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "GetListWithFilterAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "NemEcommerce.Admin.BaseListFilterDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.BaseListFilterDto",
+                      "typeSimple": "NemEcommerce.Admin.BaseListFilterDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Users.UserInListDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Users.UserInListDto>"
+                  }
+                },
+                {
+                  "name": "GetListAllAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "filterKeyword",
+                      "typeAsString": "System.String, System.Private.CoreLib",
+                      "type": "System.String",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Collections.Generic.List<NemEcommerce.Admin.System.Users.UserInListDto>",
+                    "typeSimple": "[NemEcommerce.Admin.System.Users.UserInListDto]"
+                  }
+                },
+                {
+                  "name": "AssignRoleAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "userId",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "roleNames",
+                      "typeAsString": "System.String[], System.Private.CoreLib",
+                      "type": "System.String[]",
+                      "typeSimple": "[string]",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "SetPasswordAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "userId",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "NemEcommerce.Admin.System.Users.SetPasswordDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.System.Users.SetPasswordDto",
+                      "typeSimple": "NemEcommerce.Admin.System.Users.SetPasswordDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "NemEcommerce.Admin.System.Users.UserDto",
+                    "typeSimple": "NemEcommerce.Admin.System.Users.UserDto"
+                  }
+                },
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "Volo.Abp.Application.Dtos.PagedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                      "type": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                      "typeSimple": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Users.UserDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Users.UserDto>"
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "NemEcommerce.Admin.System.Users.CreateUserDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.System.Users.CreateUserDto",
+                      "typeSimple": "NemEcommerce.Admin.System.Users.CreateUserDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "NemEcommerce.Admin.System.Users.UserDto",
+                    "typeSimple": "NemEcommerce.Admin.System.Users.UserDto"
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "NemEcommerce.Admin.System.Users.UpdateUserDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.System.Users.UpdateUserDto",
+                      "typeSimple": "NemEcommerce.Admin.System.Users.UpdateUserDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "NemEcommerce.Admin.System.Users.UserDto",
+                    "typeSimple": "NemEcommerce.Admin.System.Users.UserDto"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "DeleteMultipleAsyncByIds": {
+              "uniqueName": "DeleteMultipleAsyncByIds",
+              "name": "DeleteMultipleAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/users/multiple",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "ids",
+                  "typeAsString": "System.Collections.Generic.IEnumerable`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib",
+                  "type": "System.Collections.Generic.IEnumerable<System.Guid>",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "ids",
+                  "name": "ids",
+                  "jsonName": null,
+                  "type": "System.Collections.Generic.IEnumerable<System.Guid>",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "NemEcommerce.Admin.System.Users.IUsersAppService"
+            },
+            "GetListAllAsyncByFilterKeyword": {
+              "uniqueName": "GetListAllAsyncByFilterKeyword",
+              "name": "GetListAllAsync",
+              "httpMethod": "GET",
+              "url": "api/app/users/all",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "filterKeyword",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "filterKeyword",
+                  "name": "filterKeyword",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<NemEcommerce.Admin.System.Users.UserInListDto>",
+                "typeSimple": "[NemEcommerce.Admin.System.Users.UserInListDto]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "NemEcommerce.Admin.System.Users.IUsersAppService"
+            },
+            "GetListWithFilterAsyncByInput": {
+              "uniqueName": "GetListWithFilterAsyncByInput",
+              "name": "GetListWithFilterAsync",
+              "httpMethod": "GET",
+              "url": "api/app/users/with-filter",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "NemEcommerce.Admin.BaseListFilterDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.BaseListFilterDto",
+                  "typeSimple": "NemEcommerce.Admin.BaseListFilterDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Keyword",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Users.UserInListDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Users.UserInListDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "NemEcommerce.Admin.System.Users.IUsersAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/app/users",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "NemEcommerce.Admin.System.Users.CreateUserDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.System.Users.CreateUserDto",
+                  "typeSimple": "NemEcommerce.Admin.System.Users.CreateUserDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "NemEcommerce.Admin.System.Users.CreateUserDto",
+                  "typeSimple": "NemEcommerce.Admin.System.Users.CreateUserDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "NemEcommerce.Admin.System.Users.UserDto",
+                "typeSimple": "NemEcommerce.Admin.System.Users.UserDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<NemEcommerce.Admin.System.Users.UserDto,NemEcommerce.Admin.System.Users.CreateUserDto>"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/app/users/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "NemEcommerce.Admin.System.Users.UpdateUserDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.System.Users.UpdateUserDto",
+                  "typeSimple": "NemEcommerce.Admin.System.Users.UpdateUserDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "NemEcommerce.Admin.System.Users.UpdateUserDto",
+                  "typeSimple": "NemEcommerce.Admin.System.Users.UpdateUserDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "NemEcommerce.Admin.System.Users.UserDto",
+                "typeSimple": "NemEcommerce.Admin.System.Users.UserDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<NemEcommerce.Admin.System.Users.UserDto,System.Guid,NemEcommerce.Admin.System.Users.UpdateUserDto>"
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/app/users/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "NemEcommerce.Admin.System.Users.UserDto",
+                "typeSimple": "NemEcommerce.Admin.System.Users.UserDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.System.Users.UserDto,NemEcommerce.Admin.System.Users.UserDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+            },
+            "AssignRoleAsyncByUserIdAndRoleNames": {
+              "uniqueName": "AssignRoleAsyncByUserIdAndRoleNames",
+              "name": "AssignRoleAsync",
+              "httpMethod": "POST",
+              "url": "api/app/users/assign-role/{userId}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "userId",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "roleNames",
+                  "typeAsString": "System.String[], System.Private.CoreLib",
+                  "type": "System.String[]",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "userId",
+                  "name": "userId",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "roleNames",
+                  "name": "roleNames",
+                  "jsonName": null,
+                  "type": "System.String[]",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "NemEcommerce.Admin.System.Users.IUsersAppService"
+            },
+            "SetPasswordAsyncByUserIdAndInput": {
+              "uniqueName": "SetPasswordAsyncByUserIdAndInput",
+              "name": "SetPasswordAsync",
+              "httpMethod": "POST",
+              "url": "api/app/users/set-password/{userId}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "userId",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "NemEcommerce.Admin.System.Users.SetPasswordDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.System.Users.SetPasswordDto",
+                  "typeSimple": "NemEcommerce.Admin.System.Users.SetPasswordDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "userId",
+                  "name": "userId",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "NemEcommerce.Admin.System.Users.SetPasswordDto",
+                  "typeSimple": "NemEcommerce.Admin.System.Users.SetPasswordDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "NemEcommerce.Admin.System.Users.IUsersAppService"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/users/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
+            },
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/app/users",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Application.Dtos.PagedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                  "type": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                  "typeSimple": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Users.UserDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Users.UserDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.System.Users.UserDto,NemEcommerce.Admin.System.Users.UserDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+            }
+          }
+        },
+        "NemEcommerce.Admin.System.Roles.RolesAppService": {
           "controllerName": "Roles",
           "controllerGroupName": "Roles",
           "isRemoteService": true,
           "isIntegrationService": false,
           "apiVersion": null,
-          "type": "NemEcommerce.Admin.Roles.RolesAppService",
+          "type": "NemEcommerce.Admin.System.Roles.RolesAppService",
           "interfaces": [
             {
-              "type": "NemEcommerce.Admin.Roles.IRoleAppService",
+              "type": "NemEcommerce.Admin.System.Roles.IRoleAppService",
               "name": "IRoleAppService",
               "methods": [
                 {
@@ -1575,16 +2253,16 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Roles.RoleInListDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Roles.RoleInListDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Roles.RoleInListDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Roles.RoleInListDto>"
                   }
                 },
                 {
                   "name": "GetListAllAsync",
                   "parametersOnMethod": [],
                   "returnValue": {
-                    "type": "System.Collections.Generic.List<NemEcommerce.Admin.Roles.RoleInListDto>",
-                    "typeSimple": "[NemEcommerce.Admin.Roles.RoleInListDto]"
+                    "type": "System.Collections.Generic.List<NemEcommerce.Admin.System.Roles.RoleInListDto>",
+                    "typeSimple": "[NemEcommerce.Admin.System.Roles.RoleInListDto]"
                   }
                 },
                 {
@@ -1675,8 +2353,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.Roles.RoleDto",
-                    "typeSimple": "NemEcommerce.Admin.Roles.RoleDto"
+                    "type": "NemEcommerce.Admin.System.Roles.RoleDto",
+                    "typeSimple": "NemEcommerce.Admin.System.Roles.RoleDto"
                   }
                 },
                 {
@@ -1692,8 +2370,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Roles.RoleDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Roles.RoleDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Roles.RoleDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Roles.RoleDto>"
                   }
                 },
                 {
@@ -1701,16 +2379,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto",
-                      "typeSimple": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                      "typeAsString": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
+                      "typeSimple": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.Roles.RoleDto",
-                    "typeSimple": "NemEcommerce.Admin.Roles.RoleDto"
+                    "type": "NemEcommerce.Admin.System.Roles.RoleDto",
+                    "typeSimple": "NemEcommerce.Admin.System.Roles.RoleDto"
                   }
                 },
                 {
@@ -1726,16 +2404,16 @@
                     },
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto",
-                      "typeSimple": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                      "typeAsString": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
+                      "typeSimple": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.Roles.RoleDto",
-                    "typeSimple": "NemEcommerce.Admin.Roles.RoleDto"
+                    "type": "NemEcommerce.Admin.System.Roles.RoleDto",
+                    "typeSimple": "NemEcommerce.Admin.System.Roles.RoleDto"
                   }
                 },
                 {
@@ -1794,7 +2472,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": null,
-              "implementFrom": "NemEcommerce.Admin.Roles.IRoleAppService"
+              "implementFrom": "NemEcommerce.Admin.System.Roles.IRoleAppService"
             },
             "GetListAllAsync": {
               "uniqueName": "GetListAllAsync",
@@ -1805,11 +2483,11 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<NemEcommerce.Admin.Roles.RoleInListDto>",
-                "typeSimple": "[NemEcommerce.Admin.Roles.RoleInListDto]"
+                "type": "System.Collections.Generic.List<NemEcommerce.Admin.System.Roles.RoleInListDto>",
+                "typeSimple": "[NemEcommerce.Admin.System.Roles.RoleInListDto]"
               },
               "allowAnonymous": null,
-              "implementFrom": "NemEcommerce.Admin.Roles.IRoleAppService"
+              "implementFrom": "NemEcommerce.Admin.System.Roles.IRoleAppService"
             },
             "GetListFilterAsyncByInput": {
               "uniqueName": "GetListFilterAsyncByInput",
@@ -1866,11 +2544,11 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Roles.RoleInListDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Roles.RoleInListDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Roles.RoleInListDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Roles.RoleInListDto>"
               },
               "allowAnonymous": null,
-              "implementFrom": "NemEcommerce.Admin.Roles.IRoleAppService"
+              "implementFrom": "NemEcommerce.Admin.System.Roles.IRoleAppService"
             },
             "CreateAsyncByInput": {
               "uniqueName": "CreateAsyncByInput",
@@ -1881,9 +2559,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto",
-                  "typeSimple": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "typeAsString": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
+                  "typeSimple": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -1893,8 +2571,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto",
-                  "typeSimple": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "type": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
+                  "typeSimple": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -1903,11 +2581,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.Roles.RoleDto",
-                "typeSimple": "NemEcommerce.Admin.Roles.RoleDto"
+                "type": "NemEcommerce.Admin.System.Roles.RoleDto",
+                "typeSimple": "NemEcommerce.Admin.System.Roles.RoleDto"
               },
               "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<NemEcommerce.Admin.Roles.RoleDto,NemEcommerce.Admin.Roles.CreateUpdateRoleDto>"
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<NemEcommerce.Admin.System.Roles.RoleDto,NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto>"
             },
             "UpdateAsyncByIdAndInput": {
               "uniqueName": "UpdateAsyncByIdAndInput",
@@ -1926,9 +2604,9 @@
                 },
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto",
-                  "typeSimple": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "typeAsString": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
+                  "typeSimple": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -1950,8 +2628,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto",
-                  "typeSimple": "NemEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "type": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
+                  "typeSimple": "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -1960,11 +2638,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.Roles.RoleDto",
-                "typeSimple": "NemEcommerce.Admin.Roles.RoleDto"
+                "type": "NemEcommerce.Admin.System.Roles.RoleDto",
+                "typeSimple": "NemEcommerce.Admin.System.Roles.RoleDto"
               },
               "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<NemEcommerce.Admin.Roles.RoleDto,System.Guid,NemEcommerce.Admin.Roles.CreateUpdateRoleDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<NemEcommerce.Admin.System.Roles.RoleDto,System.Guid,NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto>"
             },
             "GetPermissionAsyncByProviderNameAndProviderKey": {
               "uniqueName": "GetPermissionAsyncByProviderNameAndProviderKey",
@@ -2021,7 +2699,7 @@
                 "typeSimple": "Volo.Abp.PermissionManagement.GetPermissionListResultDto"
               },
               "allowAnonymous": null,
-              "implementFrom": "NemEcommerce.Admin.Roles.IRoleAppService"
+              "implementFrom": "NemEcommerce.Admin.System.Roles.IRoleAppService"
             },
             "UpdatePermissionAsyncByProviderNameAndProviderKeyAndInput": {
               "uniqueName": "UpdatePermissionAsyncByProviderNameAndProviderKeyAndInput",
@@ -2098,7 +2776,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": null,
-              "implementFrom": "NemEcommerce.Admin.Roles.IRoleAppService"
+              "implementFrom": "NemEcommerce.Admin.System.Roles.IRoleAppService"
             },
             "DeleteAsyncById": {
               "uniqueName": "DeleteAsyncById",
@@ -2168,11 +2846,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.Roles.RoleDto",
-                "typeSimple": "NemEcommerce.Admin.Roles.RoleDto"
+                "type": "NemEcommerce.Admin.System.Roles.RoleDto",
+                "typeSimple": "NemEcommerce.Admin.System.Roles.RoleDto"
               },
               "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Roles.RoleDto,NemEcommerce.Admin.Roles.RoleDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.System.Roles.RoleDto,NemEcommerce.Admin.System.Roles.RoleDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "GetListAsyncByInput": {
               "uniqueName": "GetListAsyncByInput",
@@ -2217,24 +2895,24 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Roles.RoleDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Roles.RoleDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Roles.RoleDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Roles.RoleDto>"
               },
               "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Roles.RoleDto,NemEcommerce.Admin.Roles.RoleDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.System.Roles.RoleDto,NemEcommerce.Admin.System.Roles.RoleDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
         },
-        "NemEcommerce.Admin.Products.ProductsAppService": {
+        "NemEcommerce.Admin.Catalog.Products.ProductsAppService": {
           "controllerName": "Products",
           "controllerGroupName": "Products",
           "isRemoteService": true,
           "isIntegrationService": false,
           "apiVersion": null,
-          "type": "NemEcommerce.Admin.Products.ProductsAppService",
+          "type": "NemEcommerce.Admin.Catalog.Products.ProductsAppService",
           "interfaces": [
             {
-              "type": "NemEcommerce.Admin.Products.IProductsAppService",
+              "type": "NemEcommerce.Admin.Catalog.Products.IProductsAppService",
               "name": "IProductsAppService",
               "methods": [
                 {
@@ -2242,24 +2920,24 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.Products.ProductListFilterDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.Products.ProductListFilterDto",
-                      "typeSimple": "NemEcommerce.Admin.Products.ProductListFilterDto",
+                      "typeAsString": "NemEcommerce.Admin.Catalog.Products.ProductListFilterDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.Catalog.Products.ProductListFilterDto",
+                      "typeSimple": "NemEcommerce.Admin.Catalog.Products.ProductListFilterDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Products.ProductInListDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Products.ProductInListDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Products.ProductInListDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Products.ProductInListDto>"
                   }
                 },
                 {
                   "name": "GetListAllAsync",
                   "parametersOnMethod": [],
                   "returnValue": {
-                    "type": "System.Collections.Generic.List<NemEcommerce.Admin.Products.ProductInListDto>",
-                    "typeSimple": "[NemEcommerce.Admin.Products.ProductInListDto]"
+                    "type": "System.Collections.Generic.List<NemEcommerce.Admin.Catalog.Products.ProductInListDto>",
+                    "typeSimple": "[NemEcommerce.Admin.Catalog.Products.ProductInListDto]"
                   }
                 },
                 {
@@ -2309,16 +2987,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
-                      "typeSimple": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
+                      "typeAsString": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
+                      "typeSimple": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto",
-                    "typeSimple": "NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto"
+                    "type": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto"
                   }
                 },
                 {
@@ -2334,16 +3012,16 @@
                     },
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
-                      "typeSimple": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
+                      "typeAsString": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
+                      "typeSimple": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto",
-                    "typeSimple": "NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto"
+                    "type": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto"
                   }
                 },
                 {
@@ -2384,8 +3062,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "System.Collections.Generic.List<NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto>",
-                    "typeSimple": "[NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto]"
+                    "type": "System.Collections.Generic.List<NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto>",
+                    "typeSimple": "[NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto]"
                   }
                 },
                 {
@@ -2393,16 +3071,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto",
-                      "typeSimple": "NemEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto",
+                      "typeAsString": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto",
+                      "typeSimple": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto>"
                   }
                 },
                 {
@@ -2418,8 +3096,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.Products.ProductDto",
-                    "typeSimple": "NemEcommerce.Admin.Products.ProductDto"
+                    "type": "NemEcommerce.Admin.Catalog.Products.ProductDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.Products.ProductDto"
                   }
                 },
                 {
@@ -2435,8 +3113,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Products.ProductDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Products.ProductDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Products.ProductDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Products.ProductDto>"
                   }
                 },
                 {
@@ -2444,16 +3122,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.Products.CreateUpdateProductDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.Products.CreateUpdateProductDto",
-                      "typeSimple": "NemEcommerce.Admin.Products.CreateUpdateProductDto",
+                      "typeAsString": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
+                      "typeSimple": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.Products.ProductDto",
-                    "typeSimple": "NemEcommerce.Admin.Products.ProductDto"
+                    "type": "NemEcommerce.Admin.Catalog.Products.ProductDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.Products.ProductDto"
                   }
                 },
                 {
@@ -2469,16 +3147,16 @@
                     },
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.Products.CreateUpdateProductDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.Products.CreateUpdateProductDto",
-                      "typeSimple": "NemEcommerce.Admin.Products.CreateUpdateProductDto",
+                      "typeAsString": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
+                      "typeSimple": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.Products.ProductDto",
-                    "typeSimple": "NemEcommerce.Admin.Products.ProductDto"
+                    "type": "NemEcommerce.Admin.Catalog.Products.ProductDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.Products.ProductDto"
                   }
                 },
                 {
@@ -2511,9 +3189,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.Products.CreateUpdateProductDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.Products.CreateUpdateProductDto",
-                  "typeSimple": "NemEcommerce.Admin.Products.CreateUpdateProductDto",
+                  "typeAsString": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -2523,8 +3201,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "NemEcommerce.Admin.Products.CreateUpdateProductDto",
-                  "typeSimple": "NemEcommerce.Admin.Products.CreateUpdateProductDto",
+                  "type": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -2533,11 +3211,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.Products.ProductDto",
-                "typeSimple": "NemEcommerce.Admin.Products.ProductDto"
+                "type": "NemEcommerce.Admin.Catalog.Products.ProductDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.Products.ProductDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<NemEcommerce.Admin.Products.ProductDto,NemEcommerce.Admin.Products.CreateUpdateProductDto>"
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<NemEcommerce.Admin.Catalog.Products.ProductDto,NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto>"
             },
             "UpdateAsyncByIdAndInput": {
               "uniqueName": "UpdateAsyncByIdAndInput",
@@ -2556,9 +3234,9 @@
                 },
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.Products.CreateUpdateProductDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.Products.CreateUpdateProductDto",
-                  "typeSimple": "NemEcommerce.Admin.Products.CreateUpdateProductDto",
+                  "typeAsString": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -2580,8 +3258,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "NemEcommerce.Admin.Products.CreateUpdateProductDto",
-                  "typeSimple": "NemEcommerce.Admin.Products.CreateUpdateProductDto",
+                  "type": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -2590,11 +3268,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.Products.ProductDto",
-                "typeSimple": "NemEcommerce.Admin.Products.ProductDto"
+                "type": "NemEcommerce.Admin.Catalog.Products.ProductDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.Products.ProductDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<NemEcommerce.Admin.Products.ProductDto,System.Guid,NemEcommerce.Admin.Products.CreateUpdateProductDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<NemEcommerce.Admin.Catalog.Products.ProductDto,System.Guid,NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto>"
             },
             "DeleteMultipleAsyncByIds": {
               "uniqueName": "DeleteMultipleAsyncByIds",
@@ -2631,7 +3309,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "GetListAllAsync": {
               "uniqueName": "GetListAllAsync",
@@ -2642,11 +3320,11 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<NemEcommerce.Admin.Products.ProductInListDto>",
-                "typeSimple": "[NemEcommerce.Admin.Products.ProductInListDto]"
+                "type": "System.Collections.Generic.List<NemEcommerce.Admin.Catalog.Products.ProductInListDto>",
+                "typeSimple": "[NemEcommerce.Admin.Catalog.Products.ProductInListDto]"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "GetListFilterAsyncByInput": {
               "uniqueName": "GetListFilterAsyncByInput",
@@ -2657,9 +3335,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.Products.ProductListFilterDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.Products.ProductListFilterDto",
-                  "typeSimple": "NemEcommerce.Admin.Products.ProductListFilterDto",
+                  "typeAsString": "NemEcommerce.Admin.Catalog.Products.ProductListFilterDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.Catalog.Products.ProductListFilterDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Products.ProductListFilterDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -2715,11 +3393,11 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Products.ProductInListDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Products.ProductInListDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Products.ProductInListDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Products.ProductInListDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "GetThumbnailImageAsyncByFileName": {
               "uniqueName": "GetThumbnailImageAsyncByFileName",
@@ -2756,7 +3434,7 @@
                 "typeSimple": "string"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "GetSuggestNewCodeAsync": {
               "uniqueName": "GetSuggestNewCodeAsync",
@@ -2771,7 +3449,7 @@
                 "typeSimple": "string"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "AddProductAttributeAsyncByInput": {
               "uniqueName": "AddProductAttributeAsyncByInput",
@@ -2782,9 +3460,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
-                  "typeSimple": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
+                  "typeAsString": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -2794,8 +3472,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
-                  "typeSimple": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
+                  "type": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -2804,11 +3482,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto",
-                "typeSimple": "NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto"
+                "type": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "RemoveProductAttributeAsyncByAttributeIdAndId": {
               "uniqueName": "RemoveProductAttributeAsyncByAttributeIdAndId",
@@ -2865,7 +3543,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "GetListProductAttributeAllAsyncByProductId": {
               "uniqueName": "GetListProductAttributeAllAsyncByProductId",
@@ -2898,11 +3576,11 @@
                 }
               ],
               "returnValue": {
-                "type": "System.Collections.Generic.List<NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto>",
-                "typeSimple": "[NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto]"
+                "type": "System.Collections.Generic.List<NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto>",
+                "typeSimple": "[NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto]"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "GetListProductAttributeAsyncByInput": {
               "uniqueName": "GetListProductAttributeAsyncByInput",
@@ -2913,9 +3591,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto",
-                  "typeSimple": "NemEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto",
+                  "typeAsString": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -2971,11 +3649,11 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "UpdateProductAttributeAsyncByIdAndInput": {
               "uniqueName": "UpdateProductAttributeAsyncByIdAndInput",
@@ -2994,9 +3672,9 @@
                 },
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
-                  "typeSimple": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
+                  "typeAsString": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -3018,8 +3696,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
-                  "typeSimple": "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
+                  "type": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -3028,11 +3706,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto",
-                "typeSimple": "NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto"
+                "type": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "DeleteAsyncById": {
               "uniqueName": "DeleteAsyncById",
@@ -3102,11 +3780,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.Products.ProductDto",
-                "typeSimple": "NemEcommerce.Admin.Products.ProductDto"
+                "type": "NemEcommerce.Admin.Catalog.Products.ProductDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.Products.ProductDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Products.ProductDto,NemEcommerce.Admin.Products.ProductDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Catalog.Products.ProductDto,NemEcommerce.Admin.Catalog.Products.ProductDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "GetListAsyncByInput": {
               "uniqueName": "GetListAsyncByInput",
@@ -3151,24 +3829,24 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Products.ProductDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Products.ProductDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Products.ProductDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Products.ProductDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Products.ProductDto,NemEcommerce.Admin.Products.ProductDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Catalog.Products.ProductDto,NemEcommerce.Admin.Catalog.Products.ProductDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
         },
-        "NemEcommerce.Admin.ProductCategories.ProductCategoriesAppService": {
+        "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoriesAppService": {
           "controllerName": "ProductCategories",
           "controllerGroupName": "ProductCategories",
           "isRemoteService": true,
           "isIntegrationService": false,
           "apiVersion": null,
-          "type": "NemEcommerce.Admin.ProductCategories.ProductCategoriesAppService",
+          "type": "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoriesAppService",
           "interfaces": [
             {
-              "type": "NemEcommerce.Admin.ProductCategories.IProductCategoriesAppService",
+              "type": "NemEcommerce.Admin.Catalog.ProductCategories.IProductCategoriesAppService",
               "name": "IProductCategoriesAppService",
               "methods": [
                 {
@@ -3184,16 +3862,16 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductCategories.ProductCategoryInListDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductCategories.ProductCategoryInListDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto>"
                   }
                 },
                 {
                   "name": "GetListAllAsync",
                   "parametersOnMethod": [],
                   "returnValue": {
-                    "type": "System.Collections.Generic.List<NemEcommerce.Admin.ProductCategories.ProductCategoryInListDto>",
-                    "typeSimple": "[NemEcommerce.Admin.ProductCategories.ProductCategoryInListDto]"
+                    "type": "System.Collections.Generic.List<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto>",
+                    "typeSimple": "[NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto]"
                   }
                 },
                 {
@@ -3226,8 +3904,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.ProductCategories.ProductCategoryDto",
-                    "typeSimple": "NemEcommerce.Admin.ProductCategories.ProductCategoryDto"
+                    "type": "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto"
                   }
                 },
                 {
@@ -3243,8 +3921,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductCategories.ProductCategoryDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductCategories.ProductCategoryDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto>"
                   }
                 },
                 {
@@ -3252,16 +3930,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
-                      "typeSimple": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
+                      "typeAsString": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
+                      "typeSimple": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.ProductCategories.ProductCategoryDto",
-                    "typeSimple": "NemEcommerce.Admin.ProductCategories.ProductCategoryDto"
+                    "type": "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto"
                   }
                 },
                 {
@@ -3277,16 +3955,16 @@
                     },
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
-                      "typeSimple": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
+                      "typeAsString": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
+                      "typeSimple": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.ProductCategories.ProductCategoryDto",
-                    "typeSimple": "NemEcommerce.Admin.ProductCategories.ProductCategoryDto"
+                    "type": "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto"
                   }
                 },
                 {
@@ -3345,7 +4023,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.ProductCategories.IProductCategoriesAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.ProductCategories.IProductCategoriesAppService"
             },
             "GetListAllAsync": {
               "uniqueName": "GetListAllAsync",
@@ -3356,11 +4034,11 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<NemEcommerce.Admin.ProductCategories.ProductCategoryInListDto>",
-                "typeSimple": "[NemEcommerce.Admin.ProductCategories.ProductCategoryInListDto]"
+                "type": "System.Collections.Generic.List<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto>",
+                "typeSimple": "[NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto]"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.ProductCategories.IProductCategoriesAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.ProductCategories.IProductCategoriesAppService"
             },
             "GetListFilterAsyncByInput": {
               "uniqueName": "GetListFilterAsyncByInput",
@@ -3417,11 +4095,11 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductCategories.ProductCategoryInListDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductCategories.ProductCategoryInListDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.ProductCategories.IProductCategoriesAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.ProductCategories.IProductCategoriesAppService"
             },
             "CreateAsyncByInput": {
               "uniqueName": "CreateAsyncByInput",
@@ -3432,9 +4110,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
-                  "typeSimple": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
+                  "typeAsString": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -3444,8 +4122,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
-                  "typeSimple": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
+                  "type": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -3454,11 +4132,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.ProductCategories.ProductCategoryDto",
-                "typeSimple": "NemEcommerce.Admin.ProductCategories.ProductCategoryDto"
+                "type": "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<NemEcommerce.Admin.ProductCategories.ProductCategoryDto,NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto>"
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto,NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto>"
             },
             "UpdateAsyncByIdAndInput": {
               "uniqueName": "UpdateAsyncByIdAndInput",
@@ -3477,9 +4155,9 @@
                 },
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
-                  "typeSimple": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
+                  "typeAsString": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -3501,8 +4179,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
-                  "typeSimple": "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
+                  "type": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -3511,11 +4189,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.ProductCategories.ProductCategoryDto",
-                "typeSimple": "NemEcommerce.Admin.ProductCategories.ProductCategoryDto"
+                "type": "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<NemEcommerce.Admin.ProductCategories.ProductCategoryDto,System.Guid,NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto,System.Guid,NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto>"
             },
             "DeleteAsyncById": {
               "uniqueName": "DeleteAsyncById",
@@ -3585,11 +4263,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.ProductCategories.ProductCategoryDto",
-                "typeSimple": "NemEcommerce.Admin.ProductCategories.ProductCategoryDto"
+                "type": "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.ProductCategories.ProductCategoryDto,NemEcommerce.Admin.ProductCategories.ProductCategoryDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto,NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "GetListAsyncByInput": {
               "uniqueName": "GetListAsyncByInput",
@@ -3634,24 +4312,24 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductCategories.ProductCategoryDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductCategories.ProductCategoryDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.ProductCategories.ProductCategoryDto,NemEcommerce.Admin.ProductCategories.ProductCategoryDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto,NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
         },
-        "NemEcommerce.Admin.ProductAttributes.ProductAttributesAppService": {
+        "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributesAppService": {
           "controllerName": "ProductAttributes",
           "controllerGroupName": "ProductAttributes",
           "isRemoteService": true,
           "isIntegrationService": false,
           "apiVersion": null,
-          "type": "NemEcommerce.Admin.ProductAttributes.ProductAttributesAppService",
+          "type": "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributesAppService",
           "interfaces": [
             {
-              "type": "NemEcommerce.Admin.ProductAttributes.IProductAttributesAppService",
+              "type": "NemEcommerce.Admin.Catalog.ProductAttributes.IProductAttributesAppService",
               "name": "IProductAttributesAppService",
               "methods": [
                 {
@@ -3667,16 +4345,16 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductAttributes.ProductAttributeInListDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductAttributes.ProductAttributeInListDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeInListDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeInListDto>"
                   }
                 },
                 {
                   "name": "GetListAllAsync",
                   "parametersOnMethod": [],
                   "returnValue": {
-                    "type": "System.Collections.Generic.List<NemEcommerce.Admin.ProductAttributes.ProductAttributeInListDto>",
-                    "typeSimple": "[NemEcommerce.Admin.ProductAttributes.ProductAttributeInListDto]"
+                    "type": "System.Collections.Generic.List<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeInListDto>",
+                    "typeSimple": "[NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeInListDto]"
                   }
                 },
                 {
@@ -3709,8 +4387,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.ProductAttributes.ProductAttributeDto",
-                    "typeSimple": "NemEcommerce.Admin.ProductAttributes.ProductAttributeDto"
+                    "type": "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto"
                   }
                 },
                 {
@@ -3726,8 +4404,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductAttributes.ProductAttributeDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductAttributes.ProductAttributeDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto>"
                   }
                 },
                 {
@@ -3735,16 +4413,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto",
-                      "typeSimple": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto",
+                      "typeAsString": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto",
+                      "typeSimple": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.ProductAttributes.ProductAttributeDto",
-                    "typeSimple": "NemEcommerce.Admin.ProductAttributes.ProductAttributeDto"
+                    "type": "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto"
                   }
                 },
                 {
@@ -3760,16 +4438,16 @@
                     },
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto",
-                      "typeSimple": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto",
+                      "typeAsString": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto",
+                      "typeSimple": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.ProductAttributes.ProductAttributeDto",
-                    "typeSimple": "NemEcommerce.Admin.ProductAttributes.ProductAttributeDto"
+                    "type": "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto"
                   }
                 },
                 {
@@ -3828,7 +4506,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.ProductAttributes.IProductAttributesAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.ProductAttributes.IProductAttributesAppService"
             },
             "GetListAllAsync": {
               "uniqueName": "GetListAllAsync",
@@ -3839,11 +4517,11 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<NemEcommerce.Admin.ProductAttributes.ProductAttributeInListDto>",
-                "typeSimple": "[NemEcommerce.Admin.ProductAttributes.ProductAttributeInListDto]"
+                "type": "System.Collections.Generic.List<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeInListDto>",
+                "typeSimple": "[NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeInListDto]"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.ProductAttributes.IProductAttributesAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.ProductAttributes.IProductAttributesAppService"
             },
             "GetListFilterAsyncByInput": {
               "uniqueName": "GetListFilterAsyncByInput",
@@ -3900,11 +4578,11 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductAttributes.ProductAttributeInListDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductAttributes.ProductAttributeInListDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeInListDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeInListDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.ProductAttributes.IProductAttributesAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.ProductAttributes.IProductAttributesAppService"
             },
             "CreateAsyncByInput": {
               "uniqueName": "CreateAsyncByInput",
@@ -3915,9 +4593,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto",
-                  "typeSimple": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto",
+                  "typeAsString": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -3927,8 +4605,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto",
-                  "typeSimple": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto",
+                  "type": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -3937,11 +4615,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.ProductAttributes.ProductAttributeDto",
-                "typeSimple": "NemEcommerce.Admin.ProductAttributes.ProductAttributeDto"
+                "type": "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<NemEcommerce.Admin.ProductAttributes.ProductAttributeDto,NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto>"
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto,NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto>"
             },
             "UpdateAsyncByIdAndInput": {
               "uniqueName": "UpdateAsyncByIdAndInput",
@@ -3960,9 +4638,9 @@
                 },
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto",
-                  "typeSimple": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto",
+                  "typeAsString": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -3984,8 +4662,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto",
-                  "typeSimple": "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto",
+                  "type": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -3994,11 +4672,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.ProductAttributes.ProductAttributeDto",
-                "typeSimple": "NemEcommerce.Admin.ProductAttributes.ProductAttributeDto"
+                "type": "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<NemEcommerce.Admin.ProductAttributes.ProductAttributeDto,System.Guid,NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto,System.Guid,NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto>"
             },
             "DeleteAsyncById": {
               "uniqueName": "DeleteAsyncById",
@@ -4068,11 +4746,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.ProductAttributes.ProductAttributeDto",
-                "typeSimple": "NemEcommerce.Admin.ProductAttributes.ProductAttributeDto"
+                "type": "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.ProductAttributes.ProductAttributeDto,NemEcommerce.Admin.ProductAttributes.ProductAttributeDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto,NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "GetListAsyncByInput": {
               "uniqueName": "GetListAsyncByInput",
@@ -4117,24 +4795,24 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductAttributes.ProductAttributeDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.ProductAttributes.ProductAttributeDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.ProductAttributes.ProductAttributeDto,NemEcommerce.Admin.ProductAttributes.ProductAttributeDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto,NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
         },
-        "NemEcommerce.Admin.Manufacturers.ManufacturersAppService": {
+        "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturersAppService": {
           "controllerName": "Manufacturers",
           "controllerGroupName": "Manufacturers",
           "isRemoteService": true,
           "isIntegrationService": false,
           "apiVersion": null,
-          "type": "NemEcommerce.Admin.Manufacturers.ManufacturersAppService",
+          "type": "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturersAppService",
           "interfaces": [
             {
-              "type": "NemEcommerce.Admin.Manufacturers.IManufacturersAppService",
+              "type": "NemEcommerce.Admin.Catalog.Manufacturers.IManufacturersAppService",
               "name": "IManufacturersAppService",
               "methods": [
                 {
@@ -4150,16 +4828,16 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Manufacturers.ManufacturerInListDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Manufacturers.ManufacturerInListDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto>"
                   }
                 },
                 {
                   "name": "GetListAllAsync",
                   "parametersOnMethod": [],
                   "returnValue": {
-                    "type": "System.Collections.Generic.List<NemEcommerce.Admin.Manufacturers.ManufacturerInListDto>",
-                    "typeSimple": "[NemEcommerce.Admin.Manufacturers.ManufacturerInListDto]"
+                    "type": "System.Collections.Generic.List<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto>",
+                    "typeSimple": "[NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto]"
                   }
                 },
                 {
@@ -4192,8 +4870,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.Manufacturers.ManufacturerDto",
-                    "typeSimple": "NemEcommerce.Admin.Manufacturers.ManufacturerDto"
+                    "type": "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto"
                   }
                 },
                 {
@@ -4209,8 +4887,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Manufacturers.ManufacturerDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Manufacturers.ManufacturerDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto>"
                   }
                 },
                 {
@@ -4218,16 +4896,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
-                      "typeSimple": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
+                      "typeAsString": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
+                      "typeSimple": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.Manufacturers.ManufacturerDto",
-                    "typeSimple": "NemEcommerce.Admin.Manufacturers.ManufacturerDto"
+                    "type": "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto"
                   }
                 },
                 {
@@ -4243,16 +4921,16 @@
                     },
                     {
                       "name": "input",
-                      "typeAsString": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto, NemEcommerce.Admin.Application.Contracts",
-                      "type": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
-                      "typeSimple": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
+                      "typeAsString": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto, NemEcommerce.Admin.Application.Contracts",
+                      "type": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
+                      "typeSimple": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "NemEcommerce.Admin.Manufacturers.ManufacturerDto",
-                    "typeSimple": "NemEcommerce.Admin.Manufacturers.ManufacturerDto"
+                    "type": "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto",
+                    "typeSimple": "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto"
                   }
                 },
                 {
@@ -4311,7 +4989,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.Manufacturers.IManufacturersAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.Manufacturers.IManufacturersAppService"
             },
             "GetListAllAsync": {
               "uniqueName": "GetListAllAsync",
@@ -4322,11 +5000,11 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<NemEcommerce.Admin.Manufacturers.ManufacturerInListDto>",
-                "typeSimple": "[NemEcommerce.Admin.Manufacturers.ManufacturerInListDto]"
+                "type": "System.Collections.Generic.List<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto>",
+                "typeSimple": "[NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto]"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.Manufacturers.IManufacturersAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.Manufacturers.IManufacturersAppService"
             },
             "GetListFilterAsyncByInput": {
               "uniqueName": "GetListFilterAsyncByInput",
@@ -4383,11 +5061,11 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Manufacturers.ManufacturerInListDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Manufacturers.ManufacturerInListDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "NemEcommerce.Admin.Manufacturers.IManufacturersAppService"
+              "implementFrom": "NemEcommerce.Admin.Catalog.Manufacturers.IManufacturersAppService"
             },
             "CreateAsyncByInput": {
               "uniqueName": "CreateAsyncByInput",
@@ -4398,9 +5076,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
-                  "typeSimple": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
+                  "typeAsString": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -4410,8 +5088,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
-                  "typeSimple": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
+                  "type": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -4420,11 +5098,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.Manufacturers.ManufacturerDto",
-                "typeSimple": "NemEcommerce.Admin.Manufacturers.ManufacturerDto"
+                "type": "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<NemEcommerce.Admin.Manufacturers.ManufacturerDto,NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto>"
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto,NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto>"
             },
             "UpdateAsyncByIdAndInput": {
               "uniqueName": "UpdateAsyncByIdAndInput",
@@ -4443,9 +5121,9 @@
                 },
                 {
                   "name": "input",
-                  "typeAsString": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto, NemEcommerce.Admin.Application.Contracts",
-                  "type": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
-                  "typeSimple": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
+                  "typeAsString": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto, NemEcommerce.Admin.Application.Contracts",
+                  "type": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -4467,8 +5145,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
-                  "typeSimple": "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
+                  "type": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
+                  "typeSimple": "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -4477,11 +5155,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.Manufacturers.ManufacturerDto",
-                "typeSimple": "NemEcommerce.Admin.Manufacturers.ManufacturerDto"
+                "type": "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<NemEcommerce.Admin.Manufacturers.ManufacturerDto,System.Guid,NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto,System.Guid,NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto>"
             },
             "DeleteAsyncById": {
               "uniqueName": "DeleteAsyncById",
@@ -4551,11 +5229,11 @@
                 }
               ],
               "returnValue": {
-                "type": "NemEcommerce.Admin.Manufacturers.ManufacturerDto",
-                "typeSimple": "NemEcommerce.Admin.Manufacturers.ManufacturerDto"
+                "type": "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto",
+                "typeSimple": "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Manufacturers.ManufacturerDto,NemEcommerce.Admin.Manufacturers.ManufacturerDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto,NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "GetListAsyncByInput": {
               "uniqueName": "GetListAsyncByInput",
@@ -4600,11 +5278,11 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Manufacturers.ManufacturerDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Manufacturers.ManufacturerDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Manufacturers.ManufacturerDto,NemEcommerce.Admin.Manufacturers.ManufacturerDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto,NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
         }
@@ -11609,8 +12287,8 @@
         }
       ]
     },
-    "NemEcommerce.Admin.Roles.RoleInListDto": {
-      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
+    "NemEcommerce.Admin.System.Users.UserInListDto": {
+      "baseType": "Volo.Abp.Application.Dtos.AuditedEntityDto<System.Guid>",
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
@@ -11629,10 +12307,116 @@
           "regex": null
         },
         {
-          "name": "Description",
+          "name": "Surname",
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Email",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "UserName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "PhoneNumber",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Application.Dtos.AuditedEntityDto<T0>": {
+      "baseType": "Volo.Abp.Application.Dtos.CreationAuditedEntityDto<TPrimaryKey>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": [
+        "TPrimaryKey"
+      ],
+      "properties": [
+        {
+          "name": "LastModificationTime",
+          "jsonName": null,
+          "type": "System.DateTime?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "LastModifierId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Application.Dtos.CreationAuditedEntityDto<T0>": {
+      "baseType": "Volo.Abp.Application.Dtos.EntityDto<TPrimaryKey>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": [
+        "TPrimaryKey"
+      ],
+      "properties": [
+        {
+          "name": "CreationTime",
+          "jsonName": null,
+          "type": "System.DateTime",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CreatorId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -11694,7 +12478,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.Roles.CreateUpdateRoleDto": {
+    "NemEcommerce.Admin.System.Users.CreateUserDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -11714,7 +12498,55 @@
           "regex": null
         },
         {
-          "name": "Description",
+          "name": "UserName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Surname",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Email",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Password",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "PhoneNumber",
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
@@ -11727,7 +12559,190 @@
         }
       ]
     },
-    "NemEcommerce.Admin.Roles.RoleDto": {
+    "NemEcommerce.Admin.System.Users.UserDto": {
+      "baseType": "Volo.Abp.Application.Dtos.AuditedEntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "UserName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Surname",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Email",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "PhoneNumber",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Roles",
+          "jsonName": null,
+          "type": "[System.String]",
+          "typeSimple": "[string]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsActive",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "NemEcommerce.Admin.System.Users.UpdateUserDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Surname",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Email",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "PhoneNumber",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "NemEcommerce.Admin.System.Users.SetPasswordDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "NewPassword",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ConfirmNewPassword",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "NemEcommerce.Admin.System.Roles.RoleInListDto": {
       "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
       "isEnum": false,
       "enumNames": null,
@@ -11760,7 +12775,73 @@
         }
       ]
     },
-    "NemEcommerce.Admin.Products.CreateUpdateProductDto": {
+    "NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Description",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "NemEcommerce.Admin.System.Roles.RoleDto": {
+      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Description",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "NemEcommerce.Admin.Catalog.Products.CreateUpdateProductDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -11971,7 +13052,7 @@
       "genericArguments": null,
       "properties": null
     },
-    "NemEcommerce.Admin.Products.ProductDto": {
+    "NemEcommerce.Admin.Catalog.Products.ProductDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -12184,7 +13265,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.Products.ProductInListDto": {
+    "NemEcommerce.Admin.Catalog.Products.ProductInListDto": {
       "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
       "isEnum": false,
       "enumNames": null,
@@ -12349,7 +13430,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.Products.ProductListFilterDto": {
+    "NemEcommerce.Admin.Catalog.Products.ProductListFilterDto": {
       "baseType": "NemEcommerce.Admin.BaseListFilterDto",
       "isEnum": false,
       "enumNames": null,
@@ -12370,7 +13451,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto": {
+    "NemEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -12463,7 +13544,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.Products.Attributes.ProductAttributeValueDto": {
+    "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -12684,7 +13765,7 @@
       "genericArguments": null,
       "properties": null
     },
-    "NemEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto": {
+    "NemEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto": {
       "baseType": "NemEcommerce.Admin.BaseListFilterDto",
       "isEnum": false,
       "enumNames": null,
@@ -12705,7 +13786,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.ProductCategories.ProductCategoryInListDto": {
+    "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto": {
       "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
       "isEnum": false,
       "enumNames": null,
@@ -12786,7 +13867,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto": {
+    "NemEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -12903,7 +13984,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.ProductCategories.ProductCategoryDto": {
+    "NemEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -13032,7 +14113,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.ProductAttributes.ProductAttributeInListDto": {
+    "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeInListDto": {
       "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
       "isEnum": false,
       "enumNames": null,
@@ -13149,7 +14230,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.ProductAttributes.CreateUpdateProductAttributeDto": {
+    "NemEcommerce.Admin.Catalog.ProductAttributes.CreateUpdateProductAttributeDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -13266,7 +14347,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.ProductAttributes.ProductAttributeDto": {
+    "NemEcommerce.Admin.Catalog.ProductAttributes.ProductAttributeDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -13395,7 +14476,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.Manufacturers.ManufacturerInListDto": {
+    "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto": {
       "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
       "isEnum": false,
       "enumNames": null,
@@ -13488,7 +14569,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto": {
+    "NemEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -13581,7 +14662,7 @@
         }
       ]
     },
-    "NemEcommerce.Admin.Manufacturers.ManufacturerDto": {
+    "NemEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,

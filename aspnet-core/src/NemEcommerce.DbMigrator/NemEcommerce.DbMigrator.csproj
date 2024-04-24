@@ -38,7 +38,7 @@
     <PackageReference Include="Volo.Abp.BlobStoring.FileSystem" Version="8.0.5" />
     <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="8.0.5" />
     <PackageReference Include="Volo.Abp.FluentValidation" Version="8.0.5" />
-    <ProjectReference Include="..\NemEcommerce.Application.Contracts\NemEcommerce.Application.Contracts.csproj" />
+    <ProjectReference Include="..\NemEcommerce.Admin.Application.Contracts\NemEcommerce.Admin.Application.Contracts.csproj" />
     <ProjectReference Include="..\NemEcommerce.EntityFrameworkCore\NemEcommerce.EntityFrameworkCore.csproj" />
   </ItemGroup>
 

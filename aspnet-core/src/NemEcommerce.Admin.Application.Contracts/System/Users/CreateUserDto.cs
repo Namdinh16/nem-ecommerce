@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NemEcommerce.Admin.System.Users
 {
-    public class CreateUpdateUserDto
+    public class CreateUserDto
     {
         public string Name { get; set; }
         public string UserName { get; set; }

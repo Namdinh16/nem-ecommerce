@@ -11,8 +11,8 @@ namespace NemEcommerce.Admin.Samples;
  * (like IIdentityUserAppService here).
  * Only test your own application services.
  */
-public abstract class SampleAppServiceTests<TStartupModule> : NemEcommerceApplicationTestBase<TStartupModule>
-    where TStartupModule : IAbpModule
+public abstract class SampleAppServiceTests : NemEcommerceApplicationTestBase
+
 {
     private readonly IIdentityUserAppService _userAppService;
 

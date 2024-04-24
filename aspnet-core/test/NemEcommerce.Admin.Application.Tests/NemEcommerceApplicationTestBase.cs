@@ -2,8 +2,8 @@
 
 namespace NemEcommerce.Admin;
 
-public abstract class NemEcommerceApplicationTestBase<TStartupModule> : NemEcommerceTestBase<TStartupModule>
-    where TStartupModule : IAbpModule
+public abstract class NemEcommerceApplicationTestBase : NemEcommerceTestBase<NemEcommerceApplicationTestModule>
+
 {
 
 }
