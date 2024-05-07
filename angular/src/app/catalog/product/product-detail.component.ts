@@ -139,6 +139,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (response: ProductDto) => {
           this.selectedEntity = response;
+          this.loadThumbnail(this.selectedEntity.thumbnailPicture);
           this.buildForm();
           this.toggleBlockUI(false);
         },
@@ -198,6 +199,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       name: new FormControl(
         this.selectedEntity.name || null,
         Validators.compose([Validators.required, Validators.maxLength(250)])
+        
       ),
       code: new FormControl(this.selectedEntity.code || null, Validators.required),
       slug: new FormControl(this.selectedEntity.slug || null, Validators.required),
@@ -218,6 +220,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       thumbnailPictureContent: new FormControl(null)
     });
   }
+
 
   loadThumbnail(fileName: string) {
     this.productService
@@ -259,7 +262,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           thumbnailPictureContent: reader.result,
         });
 
-        // need to run CD since file load runs outside of zone
         this.cd.markForCheck();
       };
     }

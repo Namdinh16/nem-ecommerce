@@ -29,8 +29,8 @@ namespace NemEcommerce.Configurations.ProductCategories
                 .IsUnicode(false)
                 .IsRequired();
 
-            builder.Property(x => x.CoverPicture)
-               .HasMaxLength(250);
+            //builder.Property(x => x.CoverPicture)
+            //   .HasMaxLength(250);
 
             builder.Property(x => x.SeoMetaDescription)
              .HasMaxLength(250);

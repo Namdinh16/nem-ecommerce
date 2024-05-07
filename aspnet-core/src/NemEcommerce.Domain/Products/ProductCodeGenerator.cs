@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Domain.Repositories;
 
-namespace NemEcommerce.Products
+namespace NemEcommerce.Orders
 {
     public class ProductCodeGenerator : ITransientDependency
     {

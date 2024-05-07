@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using NemEcommerce.Admin.Catalog.Products.Attributes;
 using NemEcommerce.Admin.Permissions;
+using NemEcommerce.Orders;
 using NemEcommerce.ProductAttributes;
 using NemEcommerce.ProductCategories;
 using NemEcommerce.Products;
@@ -71,8 +72,20 @@ namespace NemEcommerce.Admin.Catalog.Products
         [Authorize(NemEcommercePermissions.Product.Create)]
         public override async Task<ProductDto> CreateAsync(CreateUpdateProductDto input)
         {
-            var product = await _productManager.CreateAsync(input.ManufacturerId, input.Name, input.Code, input.Slug, input.ProductType, input.SKU,
-                input.SortOrder, input.Visibility, input.IsActive, input.CategoryId, input.SeoMetaDescription, input.Description, input.sellPrice);
+            var product = await _productManager.CreateAsync(
+                input.ManufacturerId,
+                input.Name,
+                input.Code,
+                input.Slug,
+                input.ProductType,
+                input.SKU,
+                input.SortOrder,
+                input.Visibility,
+                input.IsActive,
+                input.CategoryId,
+                input.SeoMetaDescription,
+                input.Description,
+                input.sellPrice);
 
             if (input.ThumbnailPictureContent != null && input.ThumbnailPictureContent.Length > 0)
             {

@@ -10,4 +10,9 @@ public static class NemEcommerceConsts
 
     public const string ProductIdentitySettingPrefix = "P";
 
+    public const string Cart = "Cart";
+
+    public const string OrderIdentitySettingId = "Order";
+
+    public const string OrderIdentitySettingPrefix = "O";
 }

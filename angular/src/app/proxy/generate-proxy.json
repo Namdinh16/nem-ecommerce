@@ -1794,7 +1794,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "NemEcommerce.Admin.System.Users.IUsersAppService"
             },
             "GetListAllAsyncByFilterKeyword": {
@@ -1831,7 +1831,7 @@
                 "type": "System.Collections.Generic.List<NemEcommerce.Admin.System.Users.UserInListDto>",
                 "typeSimple": "[NemEcommerce.Admin.System.Users.UserInListDto]"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "NemEcommerce.Admin.System.Users.IUsersAppService"
             },
             "GetListWithFilterAsyncByInput": {
@@ -1892,7 +1892,7 @@
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Users.UserInListDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Users.UserInListDto>"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "NemEcommerce.Admin.System.Users.IUsersAppService"
             },
             "CreateAsyncByInput": {
@@ -1929,7 +1929,7 @@
                 "type": "NemEcommerce.Admin.System.Users.UserDto",
                 "typeSimple": "NemEcommerce.Admin.System.Users.UserDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<NemEcommerce.Admin.System.Users.UserDto,NemEcommerce.Admin.System.Users.CreateUserDto>"
             },
             "UpdateAsyncByIdAndInput": {
@@ -1986,7 +1986,7 @@
                 "type": "NemEcommerce.Admin.System.Users.UserDto",
                 "typeSimple": "NemEcommerce.Admin.System.Users.UserDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<NemEcommerce.Admin.System.Users.UserDto,System.Guid,NemEcommerce.Admin.System.Users.UpdateUserDto>"
             },
             "GetAsyncById": {
@@ -2023,7 +2023,7 @@
                 "type": "NemEcommerce.Admin.System.Users.UserDto",
                 "typeSimple": "NemEcommerce.Admin.System.Users.UserDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.System.Users.UserDto,NemEcommerce.Admin.System.Users.UserDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "AssignRoleAsyncByUserIdAndRoleNames": {
@@ -2080,7 +2080,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "NemEcommerce.Admin.System.Users.IUsersAppService"
             },
             "SetPasswordAsyncByUserIdAndInput": {
@@ -2137,7 +2137,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "NemEcommerce.Admin.System.Users.IUsersAppService"
             },
             "DeleteAsyncById": {
@@ -2174,7 +2174,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
             },
             "GetListAsyncByInput": {
@@ -2223,7 +2223,7 @@
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Users.UserDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Users.UserDto>"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.System.Users.UserDto,NemEcommerce.Admin.System.Users.UserDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
@@ -2471,7 +2471,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "NemEcommerce.Admin.System.Roles.IRoleAppService"
             },
             "GetListAllAsync": {
@@ -2486,7 +2486,7 @@
                 "type": "System.Collections.Generic.List<NemEcommerce.Admin.System.Roles.RoleInListDto>",
                 "typeSimple": "[NemEcommerce.Admin.System.Roles.RoleInListDto]"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "NemEcommerce.Admin.System.Roles.IRoleAppService"
             },
             "GetListFilterAsyncByInput": {
@@ -2547,7 +2547,7 @@
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Roles.RoleInListDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Roles.RoleInListDto>"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "NemEcommerce.Admin.System.Roles.IRoleAppService"
             },
             "CreateAsyncByInput": {
@@ -2584,7 +2584,7 @@
                 "type": "NemEcommerce.Admin.System.Roles.RoleDto",
                 "typeSimple": "NemEcommerce.Admin.System.Roles.RoleDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<NemEcommerce.Admin.System.Roles.RoleDto,NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto>"
             },
             "UpdateAsyncByIdAndInput": {
@@ -2641,7 +2641,7 @@
                 "type": "NemEcommerce.Admin.System.Roles.RoleDto",
                 "typeSimple": "NemEcommerce.Admin.System.Roles.RoleDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<NemEcommerce.Admin.System.Roles.RoleDto,System.Guid,NemEcommerce.Admin.System.Roles.CreateUpdateRoleDto>"
             },
             "GetPermissionAsyncByProviderNameAndProviderKey": {
@@ -2698,7 +2698,7 @@
                 "type": "Volo.Abp.PermissionManagement.GetPermissionListResultDto",
                 "typeSimple": "Volo.Abp.PermissionManagement.GetPermissionListResultDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "NemEcommerce.Admin.System.Roles.IRoleAppService"
             },
             "UpdatePermissionAsyncByProviderNameAndProviderKeyAndInput": {
@@ -2775,7 +2775,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "NemEcommerce.Admin.System.Roles.IRoleAppService"
             },
             "DeleteAsyncById": {
@@ -2812,7 +2812,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
             },
             "GetAsyncById": {
@@ -2849,7 +2849,7 @@
                 "type": "NemEcommerce.Admin.System.Roles.RoleDto",
                 "typeSimple": "NemEcommerce.Admin.System.Roles.RoleDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.System.Roles.RoleDto,NemEcommerce.Admin.System.Roles.RoleDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "GetListAsyncByInput": {
@@ -2898,7 +2898,7 @@
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Roles.RoleDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<NemEcommerce.Admin.System.Roles.RoleDto>"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<NemEcommerce.Admin.System.Roles.RoleDto,NemEcommerce.Admin.System.Roles.RoleDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
@@ -13830,18 +13830,6 @@
           "regex": null
         },
         {
-          "name": "CoverPicture",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
           "name": "Visibility",
           "jsonName": null,
           "type": "System.Boolean",
@@ -13858,6 +13846,18 @@
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Id",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -13923,18 +13923,6 @@
           "regex": null
         },
         {
-          "name": "CoverPicture",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
           "name": "Visibility",
           "jsonName": null,
           "type": "System.Boolean",
@@ -13951,18 +13939,6 @@
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ParentId",
-          "jsonName": null,
-          "type": "System.Guid?",
-          "typeSimple": "string?",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -14040,18 +14016,6 @@
           "regex": null
         },
         {
-          "name": "CoverPicture",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
           "name": "Visibility",
           "jsonName": null,
           "type": "System.Boolean",
@@ -14068,18 +14032,6 @@
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ParentId",
-          "jsonName": null,
-          "type": "System.Guid?",
-          "typeSimple": "string?",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
