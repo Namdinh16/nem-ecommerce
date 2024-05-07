@@ -36,6 +36,12 @@ export class AppMenuComponent implements OnInit {
                         routerLink: ['/catalog/attribute'],
                         permission: 'NemEcommerceAdminCatalog.Attribute',
                     },
+                    { 
+                        label: 'Danh sách danh mục', 
+                        icon: 'pi pi-fw pi-list', 
+                        routerLink: ['/catalog/category'],
+                        permission: 'NemEcommerceAdminCatalog.ProductCategory',
+                    },
                 ]
             },
 

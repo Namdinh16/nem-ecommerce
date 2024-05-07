@@ -25,10 +25,21 @@ import { CalendarModule } from 'primeng/calendar';
 import { CatalogRoutingModule } from './catalog-routing.module';
 import { AttributeComponent } from './attribute/attribute.component';
 import { AttributeDetailComponent } from './attribute/attribute-detail.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoryDetailComponent } from './category/category-detail.component';
+
 
 
 @NgModule({
-  declarations: [ProductComponent, ProductDetailComponent, ProductAttributeComponent, AttributeComponent, AttributeDetailComponent],
+  declarations: [
+    ProductComponent, 
+    ProductDetailComponent, 
+    ProductAttributeComponent, 
+    AttributeComponent, 
+    AttributeDetailComponent,
+    CategoryComponent,
+    CategoryDetailComponent,
+  ],
   imports: [
     SharedModule,
     CatalogRoutingModule,
