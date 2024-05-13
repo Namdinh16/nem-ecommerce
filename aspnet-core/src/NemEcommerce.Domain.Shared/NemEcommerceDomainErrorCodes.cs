@@ -19,4 +19,8 @@ public static class NemEcommerceDomainErrorCodes
     public const string ProductAttributeIdIsNotExists = "NemEcommerce: ProductAttributeIdIsNotExists";
 
     public const string RoleNameAlreadyExists = "NemEcommerce: RoleNameAlreadyExists";
+
+    public const string ManufactureNameAlreadyExists = "NemEcommerce: ManufactureNameAlreadyExists";
+
+    public const string ManufactureCodeAlreadyExists = "NemEcommerce: ManufactureCodeAlreadyExists";
 }

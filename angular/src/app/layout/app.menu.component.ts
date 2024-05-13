@@ -31,17 +31,24 @@ export class AppMenuComponent implements OnInit {
                         permission: 'NemEcommerceAdminCatalog.Product',
                     },
                     { 
+                        label: 'Danh sách danh mục', 
+                        icon: 'pi pi-fw pi-list', 
+                        routerLink: ['/catalog/category'],
+                        permission: 'NemEcommerceAdminCatalog.ProductCategory',
+                    },
+                    { 
                         label: 'Danh sách thuộc tính', 
                         icon: 'pi pi-fw pi-list', 
                         routerLink: ['/catalog/attribute'],
                         permission: 'NemEcommerceAdminCatalog.Attribute',
                     },
                     { 
-                        label: 'Danh sách danh mục', 
+                        label: 'Danh sách nhà sản xuất', 
                         icon: 'pi pi-fw pi-list', 
-                        routerLink: ['/catalog/category'],
-                        permission: 'NemEcommerceAdminCatalog.ProductCategory',
+                        routerLink: ['/catalog/manufacture'],
+                        permission: 'NemEcommerceAdminCatalog.Manufacturer',
                     },
+                    
                 ]
             },
 
@@ -60,6 +67,18 @@ export class AppMenuComponent implements OnInit {
                         routerLink: ['/system/user'],
                         permission: 'AbpIdentity.Users', 
                     },
+                ]
+            },
+
+            {
+                label: 'Đơn hàng',
+                items: [
+                    { 
+                        label: 'Quản lý đơn hàng', 
+                        icon: 'pi pi-fw pi-users', 
+                        routerLink: ['order'],
+                    },
+
                 ]
             },
         ];

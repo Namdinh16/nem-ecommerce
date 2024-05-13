@@ -29,8 +29,7 @@ namespace NemEcommerce.Configurations.Manufactures
                 .IsUnicode(false)
                 .IsRequired();
 
-            builder.Property(x => x.CoverPicture)
-               .HasMaxLength(250);
+
 
         }
     }

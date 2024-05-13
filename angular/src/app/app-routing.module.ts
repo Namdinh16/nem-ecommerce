@@ -25,6 +25,11 @@ const routes: Routes = [
     loadChildren: () => import('./catalog/catalog.module').then(m => m.CatalogModule),
     component: AppLayoutComponent
   },
+  {
+    path: 'order',
+    loadChildren: () => import('./order/order.module').then(m => m.OrderModule),
+    component: AppLayoutComponent
+  },
 
   
 
