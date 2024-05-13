@@ -1,26 +1,13 @@
-﻿using System;
+﻿using NemEcommerce.Orders;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Volo.Abp.Domain.Entities.Auditing;
+using Volo.Abp.Application.Dtos;
 
-namespace NemEcommerce.Orders
+namespace NemEcommerce.Admin
 {
-    public class Order : FullAuditedAggregateRoot<Guid>
+    public class OrderDto : IEntityDto<Guid>
     {
-        public Order()
-        {
-
-        }
-        
-        public Order(Guid id)
-        {
-            Id = id;
-        }
-
-    
-
         public string Code { get; set; }
         public OrderStatus Status { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
@@ -34,5 +21,7 @@ namespace NemEcommerce.Orders
         public string CustomerPhoneNumber { get; set; }
         public string CustomerAddress { get; set; }
         public Guid? CustomerUserId { get; set; }
+        public Guid Id { get; set; }
+        public List<OrderItemDto> Items { get; set; }
     }
 }

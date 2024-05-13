@@ -1,24 +1,24 @@
-﻿using System;
+﻿
+using NemEcommerce.Orders;
+using NemEcommerce.Products;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NemEcommerce.Orders;
-using NemEcommerce.Products;
-
-using NemEcommerce.Public.Orders;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 
 
-namespace NemEcommerce.Public.Orders
+
+namespace NemEcommerce.Admin
 {
     public class OrdersAppService : CrudAppService<
         Order,
         OrderDto,
         Guid,
-        PagedResultRequestDto, CreateOrderDto, CreateOrderDto>, IOrdersAppService
+        PagedResultRequestDto, CreateOrderDto, CreateOrderDto>, IOrderAppService
     {
         private readonly IRepository<OrderItem> _orderItemRepository;
         private readonly OrderCodeGenerator _orderCodeGenerator;
@@ -73,9 +73,18 @@ namespace NemEcommerce.Public.Orders
             var result = await Repository.InsertAsync(order);
 
 
-            return ObjectMapper.Map<Order, OrderDto>((Order)result);
+            return ObjectMapper.Map<Order, OrderDto>(result);
         }
 
-        
+        public async Task<List<OrderInListDto>> GetListAllAsync()
+        {
+            var query = await Repository.GetQueryableAsync();
+            query = query.Where(x => x.Total > 0);
+            var data = await AsyncExecuter.ToListAsync(query);
+
+            return ObjectMapper.Map<List<Order> ,List<OrderInListDto>>(data);
+        }
+
+
     }
 }

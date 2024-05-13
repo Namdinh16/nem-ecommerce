@@ -6,6 +6,7 @@ using NemEcommerce.Admin.Catalog.Products;
 using NemEcommerce.Admin.System.Roles;
 using NemEcommerce.Admin.System.Users;
 using NemEcommerce.Manufactures;
+using NemEcommerce.Orders;
 using NemEcommerce.ProductAttributes;
 using NemEcommerce.ProductCategories;
 using NemEcommerce.Products;
@@ -39,6 +40,11 @@ public class NemEcommerceAdminApplicationAutoMapperProfile : Profile
         CreateMap<ProductAttribute, ProductAttributeDto>();
         CreateMap<ProductAttribute, ProductAttributeInListDto>();
         CreateMap<CreateUpdateProductAttributeDto, ProductAttribute>();
+
+        //Order
+        CreateMap<Order, OrderDto>();
+        CreateMap<Order, OrderInListDto>();
+        CreateMap<CreateOrderDto, Order>();
 
         //Roles
         CreateMap<IdentityRole, RoleDto>().ForMember(x => x.Description,

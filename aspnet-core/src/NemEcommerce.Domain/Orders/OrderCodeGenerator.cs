@@ -9,7 +9,7 @@ using Volo.Abp.DependencyInjection;
 using Volo.Abp.Domain.Repositories;
 using NemEcommerce;
 
-namespace TeduEcommerce.Orders
+namespace NemEcommerce.Orders
 {
     public class OrderCodeGenerator : ITransientDependency
     {

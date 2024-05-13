@@ -4,6 +4,7 @@ import { ProductComponent } from './product/product.component';
 import { AttributeComponent } from './attribute/attribute.component';
 import { permissionGuard } from '@abp/ng.core';
 import { CategoryComponent } from './category/category.component';
+import { ManufactureComponent } from './manufacture/manufacture.component';
 
 const routes: Routes = [
   { 
@@ -28,6 +29,14 @@ const routes: Routes = [
     canActivate: [permissionGuard], 
     data: {
       requirePolicy: 'NemEcommerceAdminCatalog.ProductCategory',
+    },   
+  },
+  { 
+    path: 'manufacture', 
+    component: ManufactureComponent, 
+    canActivate: [permissionGuard], 
+    data: {
+      requirePolicy: 'NemEcommerceAdminCatalog.Manufacturer',
     },   
   }
 ];

@@ -1,8 +1,9 @@
-﻿ using System;
+﻿using NemEcommerce.Orders;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NemEcommerce.Public.Orders
+namespace NemEcommerce.Admin
 {
     public class CreateOrderDto
     {
@@ -11,5 +12,6 @@ namespace NemEcommerce.Public.Orders
         public string CustomerAddress { get; set; }
         public Guid? CustomerUserId { get; set; }
         public List<OrderItemDto> Items { get; set; }
+
     }
 }
